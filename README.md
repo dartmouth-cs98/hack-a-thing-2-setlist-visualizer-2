@@ -1,10 +1,10 @@
 # Hack A Thing 2 - Setlist Visualizer
 
-## Alexander Danilowicz, Weiling Huang
+Continuing our work on setlist visualizer...
+
+## Alexander Danilowicz and Weiling Huang
 
 ![Example](ExampleOutput.png)
-
-*Dynamically created over the Internet thanks to  Django...*
 
 # How does this hack-a-thing inspire you or relate to your possible project ideas?
 
