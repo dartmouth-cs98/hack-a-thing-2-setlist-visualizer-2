@@ -1,10 +1,15 @@
-# Hack A Thing - Setlist Visualizer
+# Hack A Thing 2 - Setlist Visualizer
 
 ## Alexander Danilowicz, Weiling Huang
 
 ![Example](ExampleOutput.png)
 
 *Dynamically created over the Internet thanks to  Django...*
+
+# How does this hack-a-thing inspire you or relate to your possible project ideas?
+
+- Dynamic web pages
+- Working with APIs
 
 ## What we attempted to build
 
