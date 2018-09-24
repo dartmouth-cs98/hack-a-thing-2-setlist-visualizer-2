@@ -1,0 +1,27 @@
+{% extends "base_generic.html" %}
+
+<!-- Add additional CSS in static file -->
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+
+{% block content %}
+<h1>Setlist Visualizer Tutorial</h1>
+<p>To choose your own concert/artists to visualize, first go to setlist.fm and find the desired artist. Then, follow the following sections to fill out the form on the main page</p>
+<h2>Unique Artist URL</h2>
+<p>This is the unique URL that setlist.fm uses for that artist. For example, if you were to Google search: "Chainsmokers setlist fm", you'd probably land here:</p>
+<p>https://www.setlist.fm/setlists/the-chainsmokers-33db30f9.html</p>
+<p>From this, the unique URL is:</p>
+<p>the-chainsmokers-33db30f9.html</p>
+
+<h2>Start URL</h2>
+<p>What setlist do you want to start at? Say I have a particular timeframe in mind. Then, I would go to the first setlistfm URL I want. Let's start with Dave Matthew's concert at the Gorge:</p>
+<p>daresbury-estate-halton-england-6be83e6e.html</p>
+
+<h2>Stop URL</h2>
+<p>What setlist do you want to end at? If you don't care and want the first 10 pages, then just type:</p>
+<p>''''</p>
+<p>Or provide a URL where the tour ended, or any concert you want to stop at, following the same process as above in the Start URL:</p>
+<p>cluj-arena-cluj-napoca-romania-7beb7eb0.html</p>
+
+{% endblock %}

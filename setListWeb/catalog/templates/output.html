@@ -1,0 +1,13 @@
+{% extends "base_generic.html" %}
+
+<!-- Add additional CSS in static file -->
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+
+{% block content %}
+  <h1>Your Graph</h1>
+  {% load static %}
+<img src="{% static 'images/graph.png' %}" alt="logo">
+  
+{% endblock %}
