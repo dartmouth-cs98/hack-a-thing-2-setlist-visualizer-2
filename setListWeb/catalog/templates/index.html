@@ -2,26 +2,28 @@
 
 <!-- Add additional CSS in static file -->
 {% load static %}
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
 
 {% block content %}
-  <h1>Setlist Visualizer Home</h1>
-  <p>Welcome to Setlist Visualizer, a website that visualizes the frequency of how often songs are played at concerts</p>
-  <h2>Go to setlist.fm and choose the artist you want! Then come back here.</h2>
-  <h3>Read our tutorial for more info.</h3>
+  <h1 id="title">Setlist Visualizer</h1>
+  <h2 id="sub">Welcome to Setlist Visualizer, a website that visualizes the frequency of how often songs are played at concerts.</h2>
 
+  <p id="setlistInstructions">Go to setlist.fm and choose the artist you want. Then come back here.<p>
+  <p id="tutorialSubtitle">Confused? Read our <a href="{% url 'tutorial' %}">tutorial</a>.</p>
 
-  <!--{% load static %}
-  <img src="{% static 'catalog/images/music.png' %}" alt="logo">-->
-  <form action="" method="post">
+  <form action="" method="post" class="form-group">
     {% csrf_token %}
     {{ form.as_table }}
-    <input type="submit" value="Submit">
+    <button type="submit" class="btn btn-success">Submit</button>
   </form>
 
-  {% load static %}
-  <img src="{% static 'images/music.png' %}" alt="logo">
-
+<!-- gif embedded from https://tenor.com/view/music-gif-7809043 -->
+<div class="tenor-gif-embed" data-postid="7809043" data-share-method="host" data-width="100%" data-aspect-ratio="1.8444444444444446">
+  <a href="https://tenor.com/view/music-gif-7809043"></a> <a href="https://tenor.com/search/music-gifs"></a>
+</div><script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 
 {% endblock %}

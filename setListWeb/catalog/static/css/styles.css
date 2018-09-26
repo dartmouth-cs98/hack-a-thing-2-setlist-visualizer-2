@@ -1,0 +1,40 @@
+/* Style sheet for setlist Visualizer
+ * Author Alexander Danilowicz
+ * Wanted to learn mroe about bootstrap
+ * So read https://django-bootstrap3.readthedocs.io/en/latest/
+ */
+
+body {
+    padding: 15px;
+    font-family: 'Oswald', sans-serif;
+}
+
+#title {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+#setlistInstructions {
+  font-size: 20px;
+}
+
+#tutorialSubtitle {
+  font-size: 16px;
+}
+
+#tutorialSubtitle a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #007fff;
+}
+
+.btn-success {
+  font-family: 'Oswald', sans-serif;
+  margin-left: 0px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  margin: 5px;
+}
