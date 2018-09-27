@@ -1,19 +1,23 @@
-# Hack A Thing 2 - Setlist Visualizer
+# Hack A Thing 2 - Setlist Visualizer with Spotify API
 
 Continuing our work on setlist visualizer...
 
+For Hack A Thing 2, we added Spotify API integration and continued learning about Python webframeworks. There is/was a lot to learn!
+
 ## Alexander Danilowicz and Weiling Huang
 
+![Spotify](Spotify.png)
 ![Example](ExampleOutput.png)
 
-# How does this hack-a-thing inspire you or relate to your possible project ideas?
+## How does this hack-a-thing inspire you or relate to your possible project ideas?
 
 - Dynamic web pages
-- Working with APIs
+- Working with APIs!
+- Python web frameworks!
 
 ## What we attempted to build
 
-We both had zero experience with Python web frameworks. Over the summer, I (Alex) wrote a simple, crummy Python script that creates a graph of the frequency of songs played at concerts. We thought it'd be fun to try and hook that script up to the Internet, so anyone can use it. (Please see citations below for script.)
+Background: We both had zero experience with Python web frameworks. Over the summer, I (Alex) wrote a simple, crummy Python script that creates a graph of the frequency of songs played at concerts. We thought it'd be fun to try and hook that script up to the Internet, so anyone can use it. (Please see citations below for script.)
 
 While working at our respective internships this past summer, we both had heard a lot about Django/Flask and their popularity, and we decided that this would be a great opportunity to try out these web frameworks. Having both taken CS52, we were intrigued to try out a new framework and compare it to what we had learned in that class, especially one that prides itself on being very efficient and lightweight while still maintaining a lot of powerful features.
 
@@ -21,14 +25,15 @@ Furthermore, we wanted to see how to integrate some sort of dynamic image genera
 
 Again, we knew nothing about Django/Flask. In fact, we knew so little about Django we thought it was a front-end only framework at first and Flask was back-end only...
 
+For **Hack-A-Thing 2**, we decided to integrate a Spotify API and clean up the CSS. Integrating the Spotify API was a bigger challenge than we thought because their documentation says you don't need to authenticate, but it turns out in May 2017, all functions required authentication. Weiling was a legend for working through this.
 
 ## Who did what
 
-1. Alex - completed the initial Django tutorial and set up all of the basic frameworks/boiler plate, created initial landing page, hosted website on pythonanywhere.com, prepared initial script for web, wrote README
+1. Alex - completed the initial Django tutorial and set up all of the basic frameworks/boiler plate, created initial landing page, hosted website on pythonanywhere.com, prepared initial script for web, wrote README. Cleaned up the CSS and added to ReDAME.
 
-1. Weiling - added a form for Django and handled passing user input to script, discovered how to integrate and execute script, created/routed output page, cleaned up general code, contributed to README
+1. Weiling - added a form for Django and handled passing user input to script, discovered how to integrate and execute script, created/routed output page, cleaned up general code, contributed to README. Additionally, was a beast with the Spotify API, and worked through figuring out how to authenticate.
 
-1. We both (paired-programming) worked on getting everything working and fully integrating the script into our django framework and producing the output graph. We had no idea if you could even run pandas/matplotlib on a web framework. So, that was cool to figure out.
+1. We both (paired-programming) worked on getting everything working and fully integrating the script into our django framework and producing the output graph. We had no idea if you could even run pandas/matplotlib on a web framework. So, that was cool to figure out. Regarding the Spotify API, together we looked at what was going on regarding authentication. We got 401 errors for a long time.
 
 ## What we  learned
 
@@ -38,9 +43,13 @@ We also learned a lot about Django and how to set up the basic framework - how m
 
 We also made a number of basic mistakes that we learned from. For example, not making dynamic changes to templates, and not putting dynamic images in the `static` folder. Furthermore, importing the python script and calling it within our framework was much easier/cleaner than rewriting it within the script.
 
+For **Hack-A-Thing 2**, we learned to integrate a (famous) API. It was challenging working with their endpoints.
+
 ## What didn’t work
 
-Hosting our web page online (instead of locally running it) on pythonanywhere didn't really work. First, I had to pay $5 in order for it to scrape setlistfm. Second, we realized with a lot of users these graphs need to stored somewhere. If we continued working on it, we'd add a chron job or dynamically render the graphs and not actually save them as images.
+Again, for Hack-A-Thing 2, we kept getting 401 errors even though the spotify documentation said we didn't need it. Once we realized that documentation was old, we had to go through the authentication process, which required a lot of electronic paperwork.
+
+Also, hosting our web page online (instead of locally running it) on pythonanywhere didn't really work. First, I had to pay $5 in order for it to scrape setlistfm. Second, we realized with a lot of users these graphs need to stored somewhere. If we continued working on it, we'd add a chron job or dynamically render the graphs and not actually save them as images.
 
 Furthermore, although the script runs successfully, it also takes a long time to scrape the page/render the image, particularly if there is a large setlist or wide range of dates being examined. Making improvements to our scraping algorithm or the graph creator could help decrease the wait time (we did not prioritize this because the algorithm was not the focus of this Hack-a-Thing, as this was focused on learning Django). Alternatively, some sort of dynamic loading screen while waiting for the script to execute could help display progress.
 
@@ -48,9 +57,9 @@ Furthermore, although the script runs successfully, it also takes a long time to
 
 ## Issues/Problems:
 
-There are many. But we learned a lot about Django and Python web frameworks.
+There are many, including Spotify API integration errors. But we learned a lot about Django, Python web frameworks, CSS and Python webframeworks, and working with APIs.
 
-- We don't have complete error handling because we maxed out on our 10+ hours, and we could not figure out a good way to detect and display errors. So, if you choose your own artist and you get an error, try a different artist or ensure that the fields are correct.
+- We don't have complete error handling, nor the best API integration code wise because we once again maxed out on our 10+ hours, and we could not figure out a good way to detect and display errors. So, if you choose your own artist and you get an error, try a different artist or ensure that the fields are correct.
 
 - As noted above, the script takes quite a while to run (30 sec +), so please be patient while waiting for it to run!
 
@@ -62,7 +71,7 @@ Then go to: `http://127.0.0.1:8000/`
 
 ## Deployed:
 
-Note: The deployed version doesn't work because pythonanywhere 
+Note: The deployed version doesn't work because pythonanywhere
 
 [setlistvisualizer.pythonanywhere.com](http://setlistvisualizer.pythonanywhere.com)
 
@@ -127,6 +136,14 @@ parque-das-nacoes-lisbon-portugal-3bebec6c.html
 ```
 
 ### Citiations
+
+**For Hack-A-Thing 2:**
+
+- Sweet Python library that works with spotify documentation:
+[https://github.com/plamere/spotipy/tree/master/examples](https://github.com/plamere/spotipy/tree/master/examples)
+
+- Spotify documentation:
+[https://spotipy.readthedocs.io/en/latest/](https://spotipy.readthedocs.io/en/latest/)
 
 - Django tutorial 1: [https://docs.djangoproject.com/en/2.1/intro/tutorial01/](https://docs.djangoproject.com/en/2.1/intro/tutorial01/)
 
