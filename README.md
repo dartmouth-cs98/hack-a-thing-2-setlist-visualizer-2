@@ -2,11 +2,11 @@
 
 Continuing our work on setlist visualizer...
 
-For Hack A Thing 2, we added Spotify API integration and continued learning about Python webframeworks. There is/was a lot to learn!
+For Hack A Thing 2, we wanted to learn about how to integrate an external API (specifically Spotify API integration) and continued learning about Python webframeworks. There is/was a lot to learn! We had to learn about the Spotify API, learn how to handle user authentication, and also how to use Django contexts to effectively pass information between views and templates.
 
 ## Alexander Danilowicz and Weiling Huang
 
-![Spotify](Spotify.png)
+![Spotify](spotify.png)
 ![Example](ExampleOutput.png)
 
 ## How does this hack-a-thing inspire you or relate to your possible project ideas?
@@ -25,15 +25,15 @@ Furthermore, we wanted to see how to integrate some sort of dynamic image genera
 
 Again, we knew nothing about Django/Flask. In fact, we knew so little about Django we thought it was a front-end only framework at first and Flask was back-end only...
 
-For **Hack-A-Thing 2**, we decided to integrate a Spotify API and clean up the CSS. Integrating the Spotify API was a bigger challenge than we thought because their documentation says you don't need to authenticate, but it turns out in May 2017, all functions required authentication. Weiling was a legend for working through this.
+For **Hack-A-Thing 2**, we decided to integrate a Spotify API and clean up the CSS. We wanted to see how difficult it would be to integrate external APIs and widgets into our website, and specifically wanted to give some sort of embedded music player that would relate to a user's artist search. Integrating the Spotify API was a bigger challenge than we thought because a 2017 update to their API service required all functions and endpoints to require some form of authentication - so we got to experience some of the complete workflow that devs go through with integrating APIs and registering their applications. Weiling was a legend for working through this.
 
 ## Who did what
 
-1. Alex - completed the initial Django tutorial and set up all of the basic frameworks/boiler plate, created initial landing page, hosted website on pythonanywhere.com, prepared initial script for web, wrote README. Cleaned up the CSS and added to ReDAME.
+1. Alex - completed the initial Django tutorial and set up all of the basic frameworks/boiler plate, created initial landing page, hosted website on pythonanywhere.com, prepared initial script for web, wrote README. Cleaned up the CSS, worked with integrating Spotify API and resolving authentication problems, added to README.
 
-1. Weiling - added a form for Django and handled passing user input to script, discovered how to integrate and execute script, created/routed output page, cleaned up general code, contributed to README. Additionally, was a beast with the Spotify API, and worked through figuring out how to authenticate.
+1. Weiling - added a form for Django and handled passing user input to script, discovered how to integrate and execute script, created/routed output page, cleaned up general code, contributed to README. Researched spotify API, worked with integrating Spotify API and resolving authentication problems, created Spotify queries.
 
-1. We both (paired-programming) worked on getting everything working and fully integrating the script into our django framework and producing the output graph. We had no idea if you could even run pandas/matplotlib on a web framework. So, that was cool to figure out. Regarding the Spotify API, together we looked at what was going on regarding authentication. We got 401 errors for a long time.
+1. We both (paired-programming) worked on getting everything working and fully integrating the script into our django framework and producing the output graph. We had no idea if you could even run pandas/matplotlib on a web framework. So, that was cool to figure out. Regarding the Spotify API, together we pair programmed the initial integration and resolved the problems regarding authentication.
 
 ## What we  learned
 
@@ -43,12 +43,15 @@ We also learned a lot about Django and how to set up the basic framework - how m
 
 We also made a number of basic mistakes that we learned from. For example, not making dynamic changes to templates, and not putting dynamic images in the `static` folder. Furthermore, importing the python script and calling it within our framework was much easier/cleaner than rewriting it within the script.
 
-For **Hack-A-Thing 2**, we learned to integrate a (famous) API. It was challenging working with their endpoints.
+For **Hack-A-Thing 2**, we learned to integrate a (famous) API. We experienced some of the workflow required to register an Application and access API endpoints via token authentication. Furthermore, we figured out how to integrate IFrame objects within HTML as well as how to integrate Javascript actions/scripts within HTML pages. Finally, we learned a lot about the Spotify API and how to query results and interpret JSON objects, passing the necessary information to our templates to render and display the appropriate artist playlist. 
 
 ## What didn’t work
+**Hack-A-Thing 2**
+For Hack-A-Thing 2, we had a lot of trouble initially connecting to the API endpoints - it turns out that in a 2017 update, Spotify required all queries to use auth tokens instead of only those that related to user data. Once we realized that their documentation was not up-to-date, we had to go through the authentication process, which required a lot of electronic paperwork. However, this was a good experience to see the process of registering and integrating an app. The actual task of integrating the token authentication was fairly straight forward, although somewhat complex and confusing to read and figure out how to construct the token. 
 
-Again, for Hack-A-Thing 2, we kept getting 401 errors even though the spotify documentation said we didn't need it. Once we realized that documentation was old, we had to go through the authentication process, which required a lot of electronic paperwork.
+Furthermore, we found it challenging to make the music player dynamically change to the searched artist, specifically - how to modify the "src" content of the IFrame. We resolved this by passing the artist ID (that was received from the spotify query) from the view method to the template via the context object, and using some simple javascript to alter the src of the IFrame before rendering it. This gave us more experience with passing information within the Django framework, and also helped us refresh our Javascript skills!
 
+**Hack-A-Thing 1**
 Also, hosting our web page online (instead of locally running it) on pythonanywhere didn't really work. First, I had to pay $5 in order for it to scrape setlistfm. Second, we realized with a lot of users these graphs need to stored somewhere. If we continued working on it, we'd add a chron job or dynamically render the graphs and not actually save them as images.
 
 Furthermore, although the script runs successfully, it also takes a long time to scrape the page/render the image, particularly if there is a large setlist or wide range of dates being examined. Making improvements to our scraping algorithm or the graph creator could help decrease the wait time (we did not prioritize this because the algorithm was not the focus of this Hack-a-Thing, as this was focused on learning Django). Alternatively, some sort of dynamic loading screen while waiting for the script to execute could help display progress.
@@ -62,6 +65,11 @@ There are many, including Spotify API integration errors. But we learned a lot a
 - We don't have complete error handling, nor the best API integration code wise because we once again maxed out on our 10+ hours, and we could not figure out a good way to detect and display errors. So, if you choose your own artist and you get an error, try a different artist or ensure that the fields are correct.
 
 - As noted above, the script takes quite a while to run (30 sec +), so please be patient while waiting for it to run!
+
+**Hack-A-Thing 2**
+- We faced a lot of problems with the initial spotify integration, specifically regarding authentication steps
+
+- We would optimally like to have the IFrame render automatically with the artist playlist, but we could not determine how to do this without switching to full Javascript
 
 ## Running it locally
 
@@ -93,6 +101,8 @@ End URL:
 
 
 ## How do I choose my own concert?
+### Artist Name
+Just the name of your artist!
 
 ### Arist Unique
 
@@ -144,6 +154,9 @@ parque-das-nacoes-lisbon-portugal-3bebec6c.html
 
 - Spotify documentation:
 [https://spotipy.readthedocs.io/en/latest/](https://spotipy.readthedocs.io/en/latest/)
+
+- Spotify authentication docs:
+[https://developer.spotify.com/documentation/general/guides/authorization-guide/](https://developer.spotify.com/documentation/general/guides/authorization-guide/)
 
 - Django tutorial 1: [https://docs.djangoproject.com/en/2.1/intro/tutorial01/](https://docs.djangoproject.com/en/2.1/intro/tutorial01/)
 
