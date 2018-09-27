@@ -6,8 +6,21 @@
 
 
 {% block content %}
+  <input id="load_artist" type="button" value="Listen to Artist!" onClick="newSite()" />
+
+  <iframe id="spotify_player" src="" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" style="display: none"></iframe>
   <h1>Your Graph</h1>
   {% load static %}
-<img src="{% static 'images/graph.png' %}" alt="logo">
-  
+	<img src="{% static 'images/graph.png' %}" alt="logo">
+
+  <!-- script found from https://stackoverflow.com/questions/6000987/dynamically-set-iframe-src -->
+  <script type="text/javascript">
+    function newSite() {
+    	var url =  "https://open.spotify.com/embed/artist/" + "{{ artist_id }};"
+        document.getElementById('spotify_player').src = url;
+        document.getElementById('spotify_player').style = "display: block";
+        document.getElementById('load_artist').style = "display: none";
+    }   
+  </script>
+
 {% endblock %}
